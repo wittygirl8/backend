@@ -36,9 +36,9 @@ def graph_by_country():
 
 @deepdive_api_v1.route('/graph/node', methods=['GET'])
 @jwt_required()
-def graph_by_node():
+def data_by_node():
     data = Utils.get_request_data(request)
-    _ret = Controller.graph_by_node(data)
+    _ret = Controller.data_by_node(data)
     if _ret[0]:
         return Utils.create_response(_ret[1], data=_ret[2])
     else:
@@ -79,5 +79,3 @@ def overview():
         return Utils.create_response(_ret[1], data=_ret[2])
     else:
         return Utils.create_response(_ret[1], code=RetCodes.Not_Found)
-
-
